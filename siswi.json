@@ -1,0 +1,158 @@
+use('Universitas');
+
+db.createCollection("siswi", {
+    validationAction: "error",
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["npm", "name", "jenis_kelamin","address"],
+            properties: {
+                npm: {
+                    bsonType: "int",
+                    description: "Must be a int"
+                },
+                name: {
+                    bsonType: "string",
+                    description: "Must be a string"
+                },
+                jenis_kelamin: {
+                    enum: ["Pria", "Wanita"],
+                    description: "Can only be one of enum values"
+                },
+                address: {
+                    bsonType: "object",
+                    required: ["street", "city"],
+                    properties: {
+                        street: {
+                            bsonType: "string",
+                            description: "Must be a string"
+                        },
+                        city: {
+                            bsonType: "string",
+                            description: "Must be a string"
+                        },
+                        country: {
+                            bsonType: "string",
+                            description: "Must be a string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+})
+
+
+db.siswi.insertMany([
+   {
+    _id: "01024",
+    npm: "01024",
+    name: "nining",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "JL remaja",
+      city: "Depok",
+      country: "Idonesia"
+    }
+  },
+  {
+    _id: "01025",
+    npm: "01025",
+    name: "abidah",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "JL remaja",
+      city: "Depok",
+      country: "Idonesia"
+    }
+  },
+  {
+    _id: "01020",
+    npm: "01020",
+    name: "nining",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "Pondok Soga",
+      city: "Depok",
+      country: "Indonesia"
+    }
+  },
+  {
+    _id: "01029",
+    npm: "01029",
+    name: "Rofikoh",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "Pondok Soga kanan",
+      city: "Depok",
+      country: "Indonesia"
+    }
+  },
+  {
+    _id: "01026",
+    npm: "01026",
+    name: "nining",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "Pondok Soga Tengah",
+      city: "Depok",
+      country: "Indonesia"
+    }
+  },
+  {
+    _id: "01001",
+    npm: "01001",
+    name: "Lilis",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "Pondok Soga Ujung",
+      city: "Bekasoy",
+      country: "Indonesia"
+    }
+  },
+  {
+    _id: "01002",
+    npm: "01002",
+    name: "Nung",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "Pondok Soga ujung",
+      city: "Bekasoy",
+      country: "Indonesia"
+    }
+  },
+  {
+    _id: "01003",
+    npm: "01003",
+    name: "eneng",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "Gembong Muara",
+      city: "Bekasoy",
+      country: "Indonesia"
+    }
+  },
+  {
+    _id: "01004",
+    npm: "01004",
+    name: "ncun",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "Jl Ncun",
+      city: "Bekasoy",
+      country: "Indonesia"
+    }
+  },
+  {
+   _id: "01005",
+    npm: "01005",
+    name: "ening",
+    jenis_kelamin: "Wanita",
+    address: {
+      street: "Pondok Soga Tengah",
+      city: "Bekasoy",
+      country: "Indonesia"
+    }
+  }
+
+  ])

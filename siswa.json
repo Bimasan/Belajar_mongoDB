@@ -1,0 +1,80 @@
+use('Universitas');
+
+//db.siswa.drop();
+/*
+db.createCollection("siswa", {
+    validationAction: "error",
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["npm", "name", "jenis_kelamin","address"],
+            properties: {
+                npm: {
+                    bsonType: "string",
+                    description: "Must be a string"
+                },
+                name: {
+                    bsonType: "string",
+                    description: "Must be a string"
+                },
+                jenis_kelamin: {
+                    enum: ["Pria", "Wanita"],
+                    description: "Can only be one of enum values"
+                },
+                address: {
+                    bsonType: "object",
+                    required: ["street", "city"],
+                    properties: {
+                        street: {
+                            bsonType: "string",
+                            description: "Must be a string"
+                        },
+                        city: {
+                            bsonType: "string",
+                            description: "Must be a string"
+                        },
+                        country: {
+                            bsonType: "string",
+                            description: "Must be a string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}) */
+
+
+db.siswa.insertOne({  
+    _id: "mhs1",
+    npm: "010",
+    name: "bimasan",
+    jenis_kelamin: "Pria",
+    address: {
+      street: "JL remaja",
+      city: "Depok",
+      country: "Idonesia"
+    }
+  },
+  {
+    _id: "mhs2",
+    npm: "01022",
+    name: "bimasan",
+    jenis_kelamin: "Pria",
+    address: {
+      street: "JL remaja",
+      city: "Depok",
+      country: "Idonesia"
+    }
+  },
+  {
+    _id: "mhs3",
+    npm: "01023",
+    name: "Budi Gunanawan",
+    jenis_kelamin: "Pria",
+    address: {
+      street: "JL Babelan",
+      city: "Bekasoy",
+      country: "Idonesia"
+    }
+  })
